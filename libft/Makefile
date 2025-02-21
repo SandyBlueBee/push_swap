@@ -6,7 +6,7 @@
 #    By: syukna <syukna@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 13:56:00 by syukna            #+#    #+#              #
-#    Updated: 2025/01/26 17:16:26 by syukna           ###   ########.fr        #
+#    Updated: 2025/02/21 13:09:42 by syukna           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,16 +36,16 @@ HEADERS = libft.h ft_printf/ft_printf.h get_next_line/get_next_line.h
 all: $(NAME)
 
 $(NAME): $(CONVERSIONS) $(HEADERS)
-	ar rcs $(NAME) $(CONVERSIONS)
+	@ar rcs $(NAME) $(CONVERSIONS)
 
 %.o: %.c $(HEADERS)
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f ${CONVERSIONS} .bonus
+	@rm -f ${CONVERSIONS} .bonus
 
 fclean: clean
-	rm -f ${NAME} 
+	@rm -f ${NAME} 
 
 re: fclean all
 

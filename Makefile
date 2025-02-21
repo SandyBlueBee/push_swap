@@ -1,46 +1,45 @@
-/* ************************************************************************** */
-/*                                                                          * */
-/*                             MAKEFILE PUSH_SWAP                           * */
-/*                                                                          * */
-/* ************************************************************************** */
 
 NAME = push_swap
 CC = cc 
 CFLAGS = -Wall -Werror -Wextra
+
+
 SRC_DIR = src
-INC = inc/push_swap.h
+INC_DIR = inc
+OBJ_DIR = build
 
-/* ************************************************************************** */
-/* ******************************Source files******************************* */
-/* ************************************************************************** */
+COLOUR_GREEN=\033[0;32m
+COLOUR_RED=\033[0;31m
+COLOUR_BLUE=\033[0;34m
+COLOUR_END=\033[0m
 
-FILES = ${SRC_DIR}/push_swap.c \
+HEADERS =	${INC_DIR}/push_swap.h \
+			${INC_DIR}/structures.h 
 
-OBJ = ${FILES:.c=.o}
+FILES = ${SRC_DIR}/push_swap.c 
 
-/* ************************************************************************** */
-/* **********************************MAKE************************************ */
-/* ************************************************************************** */
+OBJ = ${FILES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o}
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(INC) Makefile
-	make -C libft
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) libft/libft.a
-	@echo "🤖 $(NAME) 🤖 PROGRAM CREATED ✅"
+$(NAME): $(OBJ) $(HEADERS) Makefile
+	@make -C libft --no-print-directory
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) libft/libft.a
+	@echo "🤖$(COLOUR_BLUE) $(NAME) 🤖 $(COLOUR_GREEN)PROGRAM CREATED $(COLOUR_END)✅"
 
-%.o: %.c $(INC)
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS)
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	make -C libft clean
-	rm -f ${OBJ}
-	@echo "$(NAME) extra files removed. 🗑️"
+	@make -C libft clean --no-print-directory
+	@rm -f ${OBJ}
+	@echo "$(COLOUR_BLUE)$(NAME) extra files removed. $(COLOUR_END)🗑️"
 
 fclean: clean
-	make -C libft fclean
-	rm -f ${NAME}
-	@echo "$(NAME) has been bulldozed. 💣"
+	@make -C libft fclean --no-print-directory
+	@rm -f ${NAME}
+	@echo "$(COLOUR_RED)$(NAME) program has been bulldozed. $(COLOUR_END)💣"
 
 re: fclean all
 

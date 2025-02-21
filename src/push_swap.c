@@ -6,7 +6,14 @@
 /*   By: syukna <syukna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 12:21:30 by syukna            #+#    #+#             */
-/*   Updated: 2025/02/21 12:21:31 by syukna           ###   ########.fr       */
+/*   Updated: 2025/02/21 12:59:38 by syukna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../inc/push_swap.h"
+
+int	main(void)
+{
+	ft_printf("yolo");
+	return (0);
+}
