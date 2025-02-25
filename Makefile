@@ -54,6 +54,7 @@ FILES = ${SRC_DIR}/push_swap.c \
 		${SRC_DIR}/dll_init.c \
 		${SRC_DIR}/dll_check.c \
 		${SRC_DIR}/errors.c \
+		${SRC_DIR}/sort.c \
 		${SRC_DIR}/funct_choice.c \
 		${SRC_DIR}/view.c \
 

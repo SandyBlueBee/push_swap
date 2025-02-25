@@ -6,7 +6,7 @@
 /*   By: syukna <syukna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 12:21:30 by syukna            #+#    #+#             */
-/*   Updated: 2025/02/25 16:10:43 by syukna           ###   ########.fr       */
+/*   Updated: 2025/02/25 16:24:21 by syukna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	main(int argc, char **argv)
 	data.stack_b = stack_init();
 	data.funct_list = funct_init();
 	parse_argv(&data);
+	sort(&data);
 	funct_add_back(&data, "sa");
 	funct_add_back(&data, "sa");
 	funct_add_back(&data, "ra");

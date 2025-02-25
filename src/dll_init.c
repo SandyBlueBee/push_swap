@@ -6,7 +6,7 @@
 /*   By: syukna <syukna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:54:30 by syukna            #+#    #+#             */
-/*   Updated: 2025/02/24 16:40:56 by syukna           ###   ########.fr       */
+/*   Updated: 2025/02/25 16:54:17 by syukna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ t_node	*node_init(int content)
 		return (NULL);
 	new_node->value = content;
 	new_node->rank = 0;
+	new_node->upts = 0;
+	new_node->dpts = 0;
+	new_node->dpts = 0;
 	new_node->next = new_node;
 	new_node->prev = new_node;
 	return (new_node);
