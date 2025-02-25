@@ -1,4 +1,4 @@
-## [ ] PARSING DOUBLE LINKED LIST
+## [X] PARSING DOUBLE LINKED LIST
 
 [x] Create a Makefile that compiles with Libft 
 [x] Receive the elements
@@ -11,7 +11,7 @@
 	a chaque nombre de la liste, compter le nombre de nombre en dessous du nombre actuel. cet indice sera ajoute a la liste A. 
 	Free la liste B.
 
-## [ ] Check for errors
+## [X] Check for errors
 
 [x] If one of the values is not a number, add error message "Error\n"
 [x] If one of the values is a duplicate, add error message "Error\n"

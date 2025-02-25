@@ -6,7 +6,7 @@
 /*   By: syukna <syukna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 12:45:23 by syukna            #+#    #+#             */
-/*   Updated: 2025/02/21 14:33:41 by syukna           ###   ########.fr       */
+/*   Updated: 2025/02/25 16:03:50 by syukna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,19 @@ typedef struct s_stack
 	int		size;
 }				t_stack;
 
+typedef struct s_funct
+{
+	char	*funct_name;
+	struct s_funct	*next;
+}				t_funct;
+
 typedef struct s_program_data
 {
 	t_stack			*stack_a;
 	t_stack			*stack_b;
 	int				argc;
 	char			**argv;
+	t_funct			*funct_list;
 	
 }				t_program_data;
 

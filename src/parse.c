@@ -6,7 +6,7 @@
 /*   By: syukna <syukna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:22:28 by syukna            #+#    #+#             */
-/*   Updated: 2025/02/25 15:10:04 by syukna           ###   ########.fr       */
+/*   Updated: 2025/02/25 16:05:38 by syukna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,6 @@ int	parse_argv(t_program_data *data)
 	}
 	check_sequence_error(data->stack_a);
 	add_rank(data->stack_a);
-	view_data(data);
+	// view_data(data);
 	return (0);
 }

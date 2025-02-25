@@ -6,7 +6,7 @@
 /*   By: syukna <syukna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:07:56 by syukna            #+#    #+#             */
-/*   Updated: 2025/02/25 14:00:46 by syukna           ###   ########.fr       */
+/*   Updated: 2025/02/25 16:10:53 by syukna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,12 @@ void	dll_add_back(t_stack *stack, t_node *new_node);
 void	dll_remove_node(t_stack *stack);
 
 void	view_data(t_program_data *data);
+void	print_functs(t_program_data *data);
 
 int		is_duplicate(t_stack *stack);
 void	check_sequence_error(t_stack *stack);
+
+t_funct	*funct_init(void);
+void	funct_add_back(t_program_data *data, char *funct_name);
 
 #endif

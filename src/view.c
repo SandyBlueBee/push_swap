@@ -6,7 +6,7 @@
 /*   By: syukna <syukna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 15:37:19 by syukna            #+#    #+#             */
-/*   Updated: 2025/02/25 14:01:25 by syukna           ###   ########.fr       */
+/*   Updated: 2025/02/25 16:10:23 by syukna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,35 @@ void	view_data(t_program_data *data)
 	// 		i++;
 	// 	}
 	// }
+	if (data->funct_list->funct_name)
+	{
+		ft_printf("*                                          *\n");
+		ft_printf("*    funct list                            *\n");
+		t_funct *current_funct;
+		
+		current_funct = data->funct_list;
+		while (current_funct)
+		{
+			ft_printf("*    %s                                    *\n", current_funct->funct_name);
+			current_funct = current_funct->next;
+		}
+		
+	}
 	ft_printf("********************************************\n");
+}
+
+void	print_functs(t_program_data *data)
+{
+	if (data->funct_list->funct_name)
+	{
+		t_funct *current_funct;
+		
+		current_funct = data->funct_list;
+		while (current_funct)
+		{
+			ft_printf("%s\n", current_funct->funct_name);
+			current_funct = current_funct->next;
+		}
+		
+	}
 }
