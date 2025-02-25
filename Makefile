@@ -50,7 +50,11 @@ HEADERS =	${INC_DIR}/push_swap.h \
 # **************************************************************************** #
 
 FILES = ${SRC_DIR}/push_swap.c \
+		${SRC_DIR}/parse.c \
+		${SRC_DIR}/dll_init.c \
+		${SRC_DIR}/dll_check.c \
 		${SRC_DIR}/errors.c \
+		${SRC_DIR}/view.c \
 
 OBJ = ${FILES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o}
 
@@ -63,7 +67,15 @@ all: $(NAME)
 $(NAME): $(OBJ) $(HEADERS) Makefile
 	@make -C libft --no-print-directory
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) libft/libft.a
-	@echo "🤖$(COLOUR_PURPLE) $(NAME) 🤖 $(COLOUR_GREEN)PROGRAM CREATED ✅$(COLOUR_END)"
+	@echo -n "$(COLOUR_BRIGHT_GREEN)Loading: "
+	@i=1; \
+	while [ $$i -le 25 ]; do \
+		echo -n "█"; \
+		i=$$((i + 1)); \
+		sleep 0.05; \
+	done
+	@echo " 100% $(COLOUR_END)🎆"
+	@echo "🤖$(COLOUR_PURPLE) $(NAME) 🤖         $(COLOUR_GREEN)PROGRAM CREATED ✅$(COLOUR_END)"
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADERS)
 	@mkdir -p $(OBJ_DIR)
@@ -73,12 +85,12 @@ clean:
 	@if [ -d "$(OBJ_DIR)" ]; then rm -r $(OBJ_DIR); fi
 	@make -C libft clean --no-print-directory
 	@rm -f ${OBJ}
-	@echo "🤖 $(COLOUR_PURPLE)$(NAME) 🤖$(COLOUR_CYAN) EXTRA FILES REMOVED. $(COLOUR_END)🗑️"
+	@echo "🤖 $(COLOUR_PURPLE)$(NAME) 🤖$(COLOUR_CYAN)    EXTRA FILES REMOVED. $(COLOUR_END)🗑️"
 
 fclean: clean
 	@make -C libft fclean --no-print-directory
 	@rm -f ${NAME}
-	@echo "$(COLOUR_PURPLE)🤖 $(NAME) 🤖 $(COLOUR_RED)PROGRAM BULLDOZED. $(COLOUR_END)💣"
+	@echo "$(COLOUR_PURPLE)🤖 $(NAME) 🤖 $(COLOUR_RED)     PROGRAM BULLDOZED. $(COLOUR_END)💣"
 
 re: fclean all
 

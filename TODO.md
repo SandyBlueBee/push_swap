@@ -1,11 +1,11 @@
 ## [ ] PARSING DOUBLE LINKED LIST
 
-[ ] Create a Makefile that compiles with Libft 
-[ ] Receive the elements
-[ ] Create struct of program
-[ ] Convert str to numbers
-[ ] Add them to a circular linked list of program
-[ ] Convert the numbers to 0, 1, 2, 3
+[x] Create a Makefile that compiles with Libft 
+[x] Receive the elements
+[x] Create struct of program
+[x] Convert str to numbers
+[x] Add them to a circular linked list of program
+[x] Convert the numbers to rank : 0, 1, 2, 3
 	PSEUDOCODE
 	- Faire une loop sur la totalite de la liste B.
 	a chaque nombre de la liste, compter le nombre de nombre en dessous du nombre actuel. cet indice sera ajoute a la liste A. 
@@ -13,15 +13,13 @@
 
 ## [ ] Check for errors
 
-[ ] Make an const global variable for Error
-[ ] If one of the values is not a number, add error message "Error\n"
-[ ] If one of the values is a duplicate, add error message "Error\n"
-[ ] Check if any number is bigger or small than an int
-[ ] Switch to write to send errors to fd 2
+[x] If one of the values is not a number, add error message "Error\n"
+[x] If one of the values is a duplicate, add error message "Error\n"
+[x] Check if any number is bigger or small than an int
+[x] Switch to write to send errors to fd 2
 
 ## Make each of the commands work
 
-[ ] e ternalize initial setup
 [ ] sa: Swap the first 2 elements at the top of stack a.
 	Do nothing if there is only one or no elements.
 [ ] sb: Swap the first 2 elements at the top of stack b.
