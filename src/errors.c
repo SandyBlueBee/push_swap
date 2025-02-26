@@ -6,7 +6,7 @@
 /*   By: syukna <syukna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:01:06 by syukna            #+#    #+#             */
-/*   Updated: 2025/02/25 13:09:24 by syukna           ###   ########.fr       */
+/*   Updated: 2025/02/26 18:44:08 by syukna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,16 @@ int	is_all_digit(char *arg)
 	int i;
 
 	i = 0;
+	if (arg[i] == '-' && ft_isdigit(arg[i + 1]))
+		i++;
 	while(arg[i])
 	{
-		if (!ft_isdigit(arg[i])  && arg[i] != '-')
+		if (!ft_isdigit(arg[i]))
 			return (0);
 		i++;
 	}
+	if (i == 0)
+		return (0);
 	return (1);
 }
 

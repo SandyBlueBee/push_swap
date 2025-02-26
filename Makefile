@@ -54,9 +54,15 @@ FILES = ${SRC_DIR}/push_swap.c \
 		${SRC_DIR}/dll_init.c \
 		${SRC_DIR}/dll_check.c \
 		${SRC_DIR}/errors.c \
+		${SRC_DIR}/points.c \
 		${SRC_DIR}/sort.c \
+		${SRC_DIR}/forward.c \
+		${SRC_DIR}/back.c \
 		${SRC_DIR}/funct_choice.c \
 		${SRC_DIR}/view.c \
+		${SRC_DIR}/push.c \
+		${SRC_DIR}/rotate.c \
+		${SRC_DIR}/swap.c \
 
 OBJ = ${FILES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o}
 

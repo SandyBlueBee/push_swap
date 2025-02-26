@@ -17,6 +17,7 @@
 [x] If one of the values is a duplicate, add error message "Error\n"
 [x] Check if any number is bigger or small than an int
 [x] Switch to write to send errors to fd 2
+[ ] exit(exit_failure) -> take care of leaks
 
 ## Make each of the commands work
 
@@ -81,3 +82,7 @@ Then send the cheapest number first, in the
 [ ] clean
 [ ] Make sure to keep the logic unmoved if already sorted
 
+
+
+[ ] update atoi to check for INT_MAX before nbr * 10
+[ ] if empty tring

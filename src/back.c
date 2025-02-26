@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   back.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: syukna <syukna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/21 12:21:30 by syukna            #+#    #+#             */
-/*   Updated: 2025/02/25 18:42:20 by syukna           ###   ########.fr       */
+/*   Created: 2025/02/26 20:41:37 by syukna            #+#    #+#             */
+/*   Updated: 2025/02/26 21:00:30 by syukna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	main(int argc, char **argv)
+int	find_max_back(t_stack *stack_b)
 {
-	t_program_data	data;
+	if (!stack_b || !stack_b->first)
+		return 0;
+	
+	int	max;
+	t_node *node;
 
-	data.argc = argc;
-	data.argv = argv;
-	data.stack_a = stack_init();
-	data.stack_b = stack_init();
-	data.funct_list = funct_init();
-	parse_argv(&data);
-	sort(&data);
-	// view_data(&data);
-	print_functs(&data);
-	// ft_printf("yolo main %d %s", argc, data.argv[1]);
-	return (0);
+	max = 0;
+	node = stack_b->first;
+	while (node != stack_b->first || max == 0)
+	{
+		if (node->rank > max)
+			max = node->rank;
+		node = node->next;
+	}
+	return (max);
+}
+
+void	send_back(t_program_data *data)
+{
+	int	max;
+
+	max = find_max_back(data->stack_b);
+	printf("MAX IS = %d\n", max);
 }
