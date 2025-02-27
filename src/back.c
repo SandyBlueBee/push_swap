@@ -6,10 +6,11 @@
 /*   By: syukna <syukna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 20:41:37 by syukna            #+#    #+#             */
-/*   Updated: 2025/02/27 17:07:55 by syukna           ###   ########.fr       */
+/*   Updated: 2025/02/27 17:14:26 by syukna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdbool.h>
 #include "../inc/push_swap.h"
 
 int	find_max_back(t_stack *stack_b)
@@ -42,20 +43,20 @@ void	send_node_back_up_unique(t_program_data *data, t_node *chosen)
 
 void	send_node_back_up(t_program_data *data, t_node *chosen)
 {
-	int	go;
+	bool	is_first_loop;
 	t_node	*node;
 	t_node	*second;
 
-	go = 1;
+	is_first_loop = true;
 	node = data->stack_b->first;
 	second = node;
-	while (node != data->stack_b->first || go == 1)
+	while (node != data->stack_b->first || is_first_loop)
 	{
 		if (node->rank == chosen->rank - 1)
 			second = node;
 		// printf("back currentnode = %d %d %d\n", node->rank, node->upts,node->dpts);
 		node = node->next;
-		go = 0;
+		is_first_loop = false;
 	}
 	if (second->upts < chosen->upts)
 	{
