@@ -6,7 +6,7 @@
 /*   By: syukna <syukna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:26:47 by syukna            #+#    #+#             */
-/*   Updated: 2025/02/26 20:58:06 by syukna           ###   ########.fr       */
+/*   Updated: 2025/02/27 12:16:47 by syukna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,5 @@ void	sort(t_program_data *data)
 		return ;
 	send_forward(data);
 	send_back(data);
+	// view_data(data);
 }

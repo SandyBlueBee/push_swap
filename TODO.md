@@ -21,34 +21,34 @@
 
 ## Make each of the commands work
 
-[ ] sa: Swap the first 2 elements at the top of stack a.
+[x] sa: Swap the first 2 elements at the top of stack a.
 	Do nothing if there is only one or no elements.
-[ ] sb: Swap the first 2 elements at the top of stack b.
+[x] sb: Swap the first 2 elements at the top of stack b.
 	Do nothing if there is only one or no elements.
-[ ] ss : sa and sb at the same time.
-[ ] pa: Take the first element at the top of b and put it at the top of a.
+[x] ss : sa and sb at the same time.
+[x] pa: Take the first element at the top of b and put it at the top of a.
 	Do nothing if b is empty.
-[ ] pb: Take the first element at the top of a and put it at the top of b.
+[x] pb: Take the first element at the top of a and put it at the top of b.
 	Do nothing if a is empty.
-[ ] ra: Shift up all elements of stack a by 1.
+[x] ra: Shift up all elements of stack a by 1.
 	The first element becomes the last one.
-[ ] rb: Shift up all elements of stack b by 1.
+[x] rb: Shift up all elements of stack b by 1.
 	The first element becomes the last one.
-[ ] rr: ra and rb at the same time.
-[ ] rra: Shift down all elements of stack a by 1.
+[x] rr: ra and rb at the same time.
+[x] rra: Shift down all elements of stack a by 1.
 	The last element becomes the first one.
-[ ]	rrb: Shift down all elements of stack b by 1.
+[x]	rrb: Shift down all elements of stack b by 1.
 	The last element becomes the first one.
-[ ] rrr : rra and rrb at the same time.
+[x] rrr : rra and rrb at the same time.
 
 ## ALGORITHM
 
-[ ] Look into algorithms
-[ ] Add visualizer : https://github.com/o-reo/push_swap_visualizer
-[ ] Add checker
-[ ] look into alogrithm complexity
-[ ] Find the most common algorithms
-[ ] Implement the algorithm
+[x] Look into algorithms
+[x] Add visualizer : https://github.com/o-reo/push_swap_visualizer
+[x] Add checker
+[x] look into alogrithm complexity
+[x] Find the most common algorithms
+[x] Implement the algorithm
 
 - Radix Sort : https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e
 
@@ -64,25 +64,29 @@ cases for 3, 5 100, 500.
 Sending 2 numbers from stack A to stack B
 Then send the cheapest number first, in the 
 
-
-- The Korean
-
 ## ALGORITHM BREAKDOWN
 
-[ ] Check if sorted function
-[ ] Count number of elements in dblklist
-[ ] 3 numbers sort
-[ ] Create view 2 stacks function
-[ ] add asc and desc value to struct
-[ ] Create function that will add logic value to asc and desc
-[ ] Create logic loop
-[ ] Add logic to send to B until 3
-[ ] add logic to send to A
+[x] Check if sorted function
+[x] 3 numbers sort
+[x] Create view 2 stacks function
+[x] add asc and desc value to struct
+[x] Create function that will add logic value to asc and desc
+[x] Create logic loop
+[x] Add logic to send to B until 3
+[x] add logic to send to A
 [ ] optimize
 [ ] clean
-[ ] Make sure to keep the logic unmoved if already sorted
+[ ] handle all leaks
+[x] Make sure to keep the logic unmoved if already sorted
 
 
 
 [ ] update atoi to check for INT_MAX before nbr * 10
-[ ] if empty tring
+[ ] if empty sring in array
+
+## ALGORITHM Optimization
+
+[ ] add swaps on both A and B with first and second
+[ ] ss = remove double functions from a and b
+[ ] rr = remove double functions from a and b
+[ ] rrr = remove double functions from a and b

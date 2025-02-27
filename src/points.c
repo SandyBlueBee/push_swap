@@ -6,7 +6,7 @@
 /*   By: syukna <syukna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 17:32:34 by syukna            #+#    #+#             */
-/*   Updated: 2025/02/26 19:36:29 by syukna           ###   ########.fr       */
+/*   Updated: 2025/02/27 15:03:56 by syukna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,12 @@ int	define_max_ratio(int size)
 {
 	int	max;
 
-	if (size > 100)
+	if (size > 300)
+		max = size / 6;
+	else if (size > 100)
 		max = size / 5;
+	else if (size > 100)
+		max = size / 6;
 	else if (size >= 4 && size <= 10)
 		max = size - 3;
 	else	
@@ -67,22 +71,16 @@ int	define_max(t_stack *stack)
 	while (max)
 	{
 		node = stack->first;
-		i = 100;
-		while (node != stack->first || i == 100)
+		i = 1000;
+		while (node != stack->first || i == 1000)
 		{
-			
-			// printf("node->rank = %d i = %d min = %d\n", node->rank, i, min);
 			if (node->rank < i && node->rank > min)
-			{
 				i = node->rank;
-				// printf("i is being changed i = %d\n", i);
-			}
 			node = node->next;
 		}
 		min = i;
 		max--;
 	}
-	// printf("So min is %d\n", min);
 	return (min);
 }
 
@@ -98,16 +96,16 @@ void	calculate_score(t_stack *stack, int max)
 	while (node != stack->first || go == 1)
 	{
 		if (node->rank > max)
-			node->score = 100;
+			node->score = 1000;
 		else if (node->upts <= node->dpts)
 		{
 			node->score = node->upts;
-			node->dpts = 100;
+			node->dpts = 1000;
 		}
 		else if (node->dpts <= node->upts)
 		{
 			node->score = node->dpts;
-			node->upts = 100;
+			node->upts = 1000;
 		}
 		node = node->next;
 		go = 0;
