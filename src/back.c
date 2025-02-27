@@ -6,7 +6,7 @@
 /*   By: syukna <syukna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 20:41:37 by syukna            #+#    #+#             */
-/*   Updated: 2025/02/27 16:58:21 by syukna           ###   ########.fr       */
+/*   Updated: 2025/02/27 17:07:55 by syukna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	send_node_back_up(t_program_data *data, t_node *chosen)
 	while (node != data->stack_b->first || go == 1)
 	{
 		if (node->rank == chosen->rank - 1)
-			second = node;ga 
+			second = node;
 		// printf("back currentnode = %d %d %d\n", node->rank, node->upts,node->dpts);
 		node = node->next;
 		go = 0;
