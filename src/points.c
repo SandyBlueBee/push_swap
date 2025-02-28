@@ -6,7 +6,7 @@
 /*   By: syukna <syukna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 17:32:34 by syukna            #+#    #+#             */
-/*   Updated: 2025/02/27 15:03:56 by syukna           ###   ########.fr       */
+/*   Updated: 2025/02/28 11:53:44 by syukna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ int	define_max_ratio(int size)
 
 	if (size > 300)
 		max = size / 6;
+	else if (size > 200)
+		max = size / 6;
 	else if (size > 100)
 		max = size / 5;
-	else if (size > 100)
-		max = size / 6;
 	else if (size >= 4 && size <= 10)
 		max = size - 3;
 	else	

@@ -6,7 +6,7 @@
 /*   By: syukna <syukna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:07:56 by syukna            #+#    #+#             */
-/*   Updated: 2025/02/26 20:57:49 by syukna           ###   ########.fr       */
+/*   Updated: 2025/02/28 11:56:43 by syukna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	sort_three_a(t_program_data *data);
 void	sort(t_program_data *data);
 void	send_forward(t_program_data *data);
 void	send_back(t_program_data *data);
+void	send_node_back_up(t_program_data *data, t_node *chosen);
 
 /* ************************************************************************** */
 /* *******************************PRINTABLES********************************* */

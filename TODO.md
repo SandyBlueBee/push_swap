@@ -90,3 +90,8 @@ Then send the cheapest number first, in the
 [ ] ss = remove double functions from a and b
 [ ] rr = remove double functions from a and b
 [ ] rrr = remove double functions from a and b
+
+[ ] Add logic up to go
+[ ] Add logic down to go
+[x] Add logic up come back
+[x] Add logic down come back

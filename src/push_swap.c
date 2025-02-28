@@ -6,7 +6,7 @@
 /*   By: syukna <syukna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 12:21:30 by syukna            #+#    #+#             */
-/*   Updated: 2025/02/25 18:42:20 by syukna           ###   ########.fr       */
+/*   Updated: 2025/02/28 13:27:45 by syukna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	main(int argc, char **argv)
 	data.stack_b = stack_init();
 	data.funct_list = funct_init();
 	parse_argv(&data);
+	// test_funct(data);
 	sort(&data);
 	// view_data(&data);
 	print_functs(&data);
