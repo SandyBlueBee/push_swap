@@ -6,7 +6,7 @@
 /*   By: syukna <syukna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 12:21:52 by syukna            #+#    #+#             */
-/*   Updated: 2025/02/27 17:13:44 by syukna           ###   ########.fr       */
+/*   Updated: 2025/02/28 17:16:48 by syukna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@
 # include "../libft/libft.h"
 # include "structures.h"
 # include "functions.h"
+# include <stdbool.h>
 
 #endif

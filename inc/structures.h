@@ -6,7 +6,7 @@
 /*   By: syukna <syukna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 12:45:23 by syukna            #+#    #+#             */
-/*   Updated: 2025/02/25 16:54:06 by syukna           ###   ########.fr       */
+/*   Updated: 2025/03/01 16:05:48 by syukna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_program_data
 	t_stack			*stack_b;
 	int				argc;
 	char			**argv;
+	char			**splitted_array;
 	t_funct			*funct_list;
 	
 }				t_program_data;

@@ -6,7 +6,7 @@
 /*   By: syukna <syukna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:07:56 by syukna            #+#    #+#             */
-/*   Updated: 2025/02/28 11:56:43 by syukna           ###   ########.fr       */
+/*   Updated: 2025/03/01 16:07:44 by syukna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	add_rank(t_stack *stack);
 
 int	dll_sorted(t_stack *stack);
 
-long int	check_individual_error(char *arg);
+long int	check_individual_error(t_program_data *data, char *arg);
 
 t_node	*node_init(int content);
 t_stack	*stack_init(void);
@@ -36,7 +36,7 @@ void	view_data(t_program_data *data);
 void	print_functs(t_program_data *data);
 
 int		is_duplicate(t_stack *stack);
-void	check_sequence_error(t_stack *stack);
+void	check_sequence_error(t_program_data *data);
 
 t_funct	*funct_init(void);
 void	funct_add_back(t_program_data *data, char *funct_name);
@@ -48,6 +48,10 @@ void	sort(t_program_data *data);
 void	send_forward(t_program_data *data);
 void	send_back(t_program_data *data);
 void	send_node_back_up(t_program_data *data, t_node *chosen);
+
+void	optimize_funct(t_program_data *data);
+
+void	free_all(t_program_data *data);
 
 /* ************************************************************************** */
 /* *******************************PRINTABLES********************************* */

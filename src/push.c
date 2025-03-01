@@ -6,7 +6,7 @@
 /*   By: syukna <syukna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 17:38:24 by syukna            #+#    #+#             */
-/*   Updated: 2025/02/28 13:16:06 by syukna           ###   ########.fr       */
+/*   Updated: 2025/02/28 17:14:59 by syukna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,13 @@ void	pa(t_program_data *data)
 	dll_remove_node(data->stack_b);
 	funct_add_back(data, "pa");
 }
+void	handle_send_pb(t_program_data *data)
+{
+	if (data->stack_b->size > 2 && data->stack_b->first->rank < data->stack_b->size / 2)
+		rb(data);
+	if (data->stack_b->size > 2 && data->stack_b->first->rank < data->stack_b->first->next->rank)
+		sb(data);
+}
 
 void	pb(t_program_data *data)
 {
@@ -44,4 +51,5 @@ void	pb(t_program_data *data)
 	dll_add_front(data->stack_b, node);
 	dll_remove_node(data->stack_a);
 	funct_add_back(data, "pb");
+	handle_send_pb(data);
 }

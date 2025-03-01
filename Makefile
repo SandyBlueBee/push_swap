@@ -7,7 +7,7 @@
 
 NAME = push_swap
 CC = cc 
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra -g3
 
 # **************************************************************************** #
 # **********************************COLORS************************************ #
@@ -63,6 +63,8 @@ FILES = ${SRC_DIR}/push_swap.c \
 		${SRC_DIR}/push.c \
 		${SRC_DIR}/rotate.c \
 		${SRC_DIR}/swap.c \
+		${SRC_DIR}/free.c \
+		${SRC_DIR}/optimize_funct.c \
 
 OBJ = ${FILES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o}
 

@@ -74,24 +74,26 @@ Then send the cheapest number first, in the
 [x] Create logic loop
 [x] Add logic to send to B until 3
 [x] add logic to send to A
-[ ] optimize
-[ ] clean
-[ ] handle all leaks
+[x] optimize
+[ ] clean / norminette
+[x] handle all leaks
 [x] Make sure to keep the logic unmoved if already sorted
 
 
 
-[ ] update atoi to check for INT_MAX before nbr * 10
-[ ] if empty sring in array
+[x] update atoi to check for INT_MAX before nbr * 10
+[x] if empty string in array
 
 ## ALGORITHM Optimization
 
-[ ] add swaps on both A and B with first and second
-[ ] ss = remove double functions from a and b
+[x] add swaps on both A and B with first and second
+[x] ss = remove double functions from a and b
 [ ] rr = remove double functions from a and b
 [ ] rrr = remove double functions from a and b
 
-[ ] Add logic up to go
-[ ] Add logic down to go
+[x] Add logic up to go
+[x] Add logic down to go
 [x] Add logic up come back
 [x] Add logic down come back
+
+[x] Add logic for double forward!!

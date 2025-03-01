@@ -6,7 +6,7 @@
 /*   By: syukna <syukna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 14:56:37 by syukna            #+#    #+#             */
-/*   Updated: 2025/02/25 13:48:36 by syukna           ###   ########.fr       */
+/*   Updated: 2025/03/01 15:59:58 by syukna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,12 @@ int	dll_sorted(t_stack *stack)
 	return (1);
 }
 
-void	check_sequence_error(t_stack *stack)
+void	check_sequence_error(t_program_data *data)
 {
-	if (is_duplicate(stack))
+	if (is_duplicate(data->stack_a))
 	{
 		write(2, "Error\n", 6);
+		free_all(data);
 		exit(EXIT_FAILURE);
 	}
 }

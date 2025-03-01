@@ -6,7 +6,7 @@
 /*   By: syukna <syukna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:22:28 by syukna            #+#    #+#             */
-/*   Updated: 2025/02/25 17:34:05 by syukna           ###   ########.fr       */
+/*   Updated: 2025/03/01 16:32:22 by syukna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,33 +18,34 @@
  * @param argv Which will either be split of brought down to first position
  * @return splitted array
  */
-char	**split_or_no_split(int *argc, char **argv)
+void	split_or_no_split(t_program_data *data)
 {
-	char **splitted_array;
-
-	if (*argc < 2)
+	if (data->argc < 2)
+	{
+		free_all(data);
 		exit(EXIT_FAILURE);
-	if (*argc == 2)
+	}
+	if (data->argc == 2)
 	{
 		int i;
 
 		i = 0;
-		splitted_array = ft_split(argv[1], ' ');
-		if (!splitted_array || !splitted_array[0])
+		data->splitted_array = ft_split(data->argv[1], ' ');
+		if (!data->splitted_array || !data->splitted_array[0])
 		{
 			write(2, "Error", 6);
+			free_all(data);
 			exit(EXIT_FAILURE);
 		}
-		while (splitted_array[i] != NULL)
+		while (data->splitted_array[i] != NULL)
 			i++;
-		*argc = i;
+		data->argc = i;
 	}
 	else
 	{
-		splitted_array = &argv[1];
-		*argc -= 1;
+		data->splitted_array = &data->argv[1];
+		data->argc -= 1;
 	}
-	return (splitted_array);
 }
 
 void	add_rank(t_stack *stack)
@@ -83,16 +84,16 @@ int	parse_argv(t_program_data *data)
 	int	num;
 	t_node	*new_node;
 	
-	data->argv = split_or_no_split(&data->argc, data->argv);
+	split_or_no_split(data);
 	i = 0;
-	while (data->argv[i] != NULL)
+	while (data->splitted_array[i] != NULL)
 	{
-		num = check_individual_error(data->argv[i]);
+		num = check_individual_error(data, data->splitted_array[i]);
 		new_node = node_init(num);
 		dll_add_back(data->stack_a, new_node);
 		i++;
 	}
-	check_sequence_error(data->stack_a);
+	check_sequence_error(data);
 	add_rank(data->stack_a);
 	return (0);
 }

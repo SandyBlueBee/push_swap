@@ -6,7 +6,7 @@
 /*   By: syukna <syukna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 17:32:34 by syukna            #+#    #+#             */
-/*   Updated: 2025/02/28 11:53:44 by syukna           ###   ########.fr       */
+/*   Updated: 2025/02/28 18:10:24 by syukna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,15 @@ int	define_max_ratio(int size)
 {
 	int	max;
 
-	if (size > 300)
+	if (size > 430)
+		max = size / 8;
+	else if (size > 280)
+		max = size / 7;
+	else if (size > 140)
 		max = size / 6;
-	else if (size > 200)
-		max = size / 6;
-	else if (size > 100)
+	else if (size > 50)
 		max = size / 5;
-	else if (size >= 4 && size <= 10)
+	else if (size >= 4 && size <= 15)
 		max = size - 3;
 	else	
 		max = size / 4;
@@ -96,16 +98,16 @@ void	calculate_score(t_stack *stack, int max)
 	while (node != stack->first || go == 1)
 	{
 		if (node->rank > max)
-			node->score = 1000;
+			node->score = stack->size + 10;
 		else if (node->upts <= node->dpts)
 		{
 			node->score = node->upts;
-			node->dpts = 1000;
+			node->dpts = stack->size + 10;
 		}
 		else if (node->dpts <= node->upts)
 		{
 			node->score = node->dpts;
-			node->upts = 1000;
+			node->upts = stack->size + 10;
 		}
 		node = node->next;
 		go = 0;

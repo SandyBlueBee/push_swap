@@ -6,11 +6,10 @@
 /*   By: syukna <syukna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 20:41:37 by syukna            #+#    #+#             */
-/*   Updated: 2025/02/28 13:34:31 by syukna           ###   ########.fr       */
+/*   Updated: 2025/02/28 19:04:38 by syukna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
 #include "../inc/push_swap.h"
 
 int	find_max_back(t_stack *stack_b)
@@ -19,14 +18,17 @@ int	find_max_back(t_stack *stack_b)
 		return 0;
 	
 	int	max;
+	int first_loop;
 	t_node *node;
 
+	first_loop = 1;
 	max = 0;
 	node = stack_b->first;
-	while (node != stack_b->first || max == 0)
+	while (node != stack_b->first || first_loop == 1)
 	{
 		if (node->rank > max)
 			max = node->rank;
+		first_loop = 0;
 		node = node->next;
 	}
 	return (max);
@@ -38,13 +40,20 @@ void	send_node_back_up_unique(t_program_data *data, t_node *chosen)
 	{
 		rb(data);
 		add_score(data->stack_b);
-		// printf("\n\nback CHOSEN = %d %d %d\n", chosen->rank, chosen->upts,chosen->dpts);
-		// view_data(data);
 	}
 	pa(data);
 }
 
-void	send_node_back_up(t_program_data *data, t_node *chosen)
+void	send_node_back_up_double(t_program_data *data, t_node *chosen, t_node *second)
+{
+	send_node_back_up_unique(data, second);
+	send_node_back_up_unique(data, chosen);
+	if (data->stack_b->size > 2 && data->stack_b->first->rank < data->stack_b->first->next->rank)
+		sb(data);
+	sa(data);
+}
+
+t_node	*find_prev(t_program_data *data, t_node *chosen)
 {
 	bool	is_first_loop;
 	t_node	*node;
@@ -57,17 +66,30 @@ void	send_node_back_up(t_program_data *data, t_node *chosen)
 	{
 		if (node->rank == chosen->rank - 1)
 			second = node;
-		// printf("back currentnode = %d %d %d\n", node->rank, node->upts,node->dpts);
 		node = node->next;
 		is_first_loop = false;
 	}
+	return (second);
+}
+
+void	send_node_back_up(t_program_data *data, t_node *chosen)
+{
+	t_node	*second;
+	t_node	*third;
+
+	second = find_prev(data, chosen);
+	third = find_prev(data, second);
 	if (second->upts < chosen->upts)
 	{
-		// printf("\n\nSENDING CHOSEN = %d %d %d\n", chosen->rank, chosen->upts,chosen->dpts);
-		// printf("SENDING SECOND = %d %d %d\n\n", second->rank, second->upts,second->dpts);
-		send_node_back_up_unique(data, second);
-		send_node_back_up_unique(data, chosen);
-		sa(data);
+		if (third->upts < second->upts)
+		{
+			send_node_back_up_unique(data, third);
+			ra(data);
+			send_node_back_up_double(data, chosen, second);
+			rra(data);
+		}
+		else
+			send_node_back_up_double(data, chosen, second);
 	}
 	else
 		send_node_back_up_unique(data, chosen);
@@ -80,37 +102,41 @@ void	send_node_back_down_unique(t_program_data *data, t_node *chosen)
 		{
 			rrb(data);
 			add_score(data->stack_b);
-			// printf("\n\nback down CHOSEN = %d %d %d\n", chosen->rank, chosen->upts,chosen->dpts);
-			// view_data(data);
 		}
 	rrb(data);
 	pa(data);
 }
 
+
+void	send_node_back_down_double(t_program_data *data, t_node *chosen, t_node *second)
+{
+	send_node_back_down_unique(data, second);
+	send_node_back_down_unique(data, chosen);
+	if (data->stack_b->size > 2 && data->stack_b->first->rank < data->stack_b->first->next->rank)
+		sb(data);
+	sa(data);
+}
+
+
+
 void	send_node_back_down(t_program_data *data, t_node *chosen)
 {
-	bool	is_first_loop;
-	t_node	*node;
 	t_node	*second;
+	t_node	*third;
 
-	is_first_loop = true;
-	node = data->stack_b->first;
-	second = node;
-	while (node != data->stack_b->first || is_first_loop)
-	{
-		if (node->rank == chosen->rank - 1)
-			second = node;
-		// printf("back currentnode = %d %d %d\n", node->rank, node->upts,node->dpts);
-		node = node->next;
-		is_first_loop = false;
-	}
+	second = find_prev(data, chosen);
+	third = find_prev(data, second);
 	if (second->dpts < chosen->dpts)
 	{
-		// printf("\n\nSENDING CHOSEN = %d %d %d\n", chosen->rank, chosen->upts,chosen->dpts);
-		// printf("SENDING SECOND = %d %d %d\n\n", second->rank, second->upts,second->dpts);
-		send_node_back_down_unique(data, second);
-		send_node_back_down_unique(data, chosen);
-		sa(data);
+		if (third->dpts < second->dpts)
+		{
+			send_node_back_down_unique(data, third);
+			ra(data);
+			send_node_back_down_double(data, chosen, second);
+			rra(data);
+		}
+		else
+			send_node_back_down_double(data, chosen, second);
 	}
 	else
 		send_node_back_down_unique(data, chosen);

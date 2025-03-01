@@ -6,7 +6,7 @@
 /*   By: syukna <syukna@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:01:06 by syukna            #+#    #+#             */
-/*   Updated: 2025/02/26 18:44:08 by syukna           ###   ########.fr       */
+/*   Updated: 2025/03/01 16:32:41 by syukna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	is_int(long int num)
 	return (1);
 }
 
-long int	check_individual_error(char *arg)
+long int	check_individual_error(t_program_data *data, char *arg)
 {
 	int	check;
 	long long int num;
@@ -51,6 +51,7 @@ long int	check_individual_error(char *arg)
 	if (check == 0)
 	{
 		write(2, "Error\n", 6);
+		free_all(data);
 		exit(EXIT_FAILURE);
 	}
 	return (num);
